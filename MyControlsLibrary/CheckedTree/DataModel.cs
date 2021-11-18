@@ -2,19 +2,19 @@
 using System.Windows;
 
 namespace MyControlsLibrary.CheckedTree;
-public class TreeFamily : DependencyObject, IParent<object>
+public class TreeNode : DependencyObject, IParent<object>
 {
     public string? Name { get; set; }
     public int Id { get; set; }
-    public List<TreePerson>? Members { get; set; }
+    public List<TreeItem>? TreeNodeItems { get; set; }
 
     IEnumerable<object>? IParent<object>.GetChildren()
     {
-        return Members;
+        return TreeNodeItems;
     }
 }
 
-public class TreePerson : DependencyObject
+public class TreeItem : DependencyObject
 {
     public int Id { get; set; }
     public string? Name { get; set; }
